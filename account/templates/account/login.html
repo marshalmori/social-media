@@ -1,0 +1,36 @@
+{% extends "base.html" %}
+{% load staticfiles %}
+
+
+
+
+{% block content %}
+
+<head>
+  <style type="text/css">
+    .top50{
+      margin-top: 7em;
+    }
+  </style>
+</head>
+
+<body class="cyan loaded" cz-shortcut-listen="true">
+    <div class="row top50">
+      <div class="col s2 offset-s5 card">
+        <div class="card-content indigo-text">
+              <span class="card-title center">Login</span>
+        </div>
+
+        <form action="." class="login-form" method="post">
+          {{ form.as_p }}
+          {% csrf_token %}
+          <div class="row">
+            <div class="input-field col s12">
+              <p><input class="btn waves-effect waves-light col s12 indigo" type="submit" value="Login"></p>
+            </div>
+          </div>
+        </form>
+      </div>
+    </div>
+</body>
+{% endblock %}

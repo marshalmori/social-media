@@ -1,0 +1,43 @@
+{% extends "base.html" %}
+{% load staticfiles %}
+
+
+{% block content %}
+<head>
+  <style type="text/css">
+    .top50{
+      margin-top: 7em;
+    }
+  </style>
+</head>
+
+<body class="cyan loaded" cz-shortcut-listen="true">
+    <div class="row top50">
+      <div class="col s2 offset-s5 card">
+        <div class="card-content indigo-text center">
+              <span class="card-title">Faça Login</span>
+              <i class="material-icons large">account_box</i>
+        </div>
+        {% if form.errors %}
+              <p>Your username and password didn't match.
+                 Please try again.
+              </p>
+        {% endif %}
+
+        <form action="{% url 'login' %}" class="login-form" method="post">
+          {{ form.as_p }}
+          {% csrf_token %}
+          <!--Porque tem esse input com type="hidden"? -->
+          <input type="hidden" name="next" value="{{ next }}">
+          <div class="row">
+            <div class="input-field col s8 offset-s2">
+              <p><button class="btn waves-effect waves-light col s12 indigo" type="submit">Login
+                <i class="material-icons right">send</i>
+              </button></p>
+            </div>
+          </div>
+        </form>
+      </div>
+    </div>
+</body>
+{% endblock%}
