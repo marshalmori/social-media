@@ -17,19 +17,18 @@
   </head>
   <body>
 
-<nav class="indigo" role="navigation">
+<nav class="indigo z-depth-3" role="navigation" >
   <div class="nav-wrapper container">
   <a href="{% url 'dashboard' %}" class="left brand-logo">Marshal</a>
 
     {% if request.user.is_authenticated %}
       <ul id="nav-mobile" class="right hide-on-med-and-down">
-        <li><a href="{% url 'dashboard' %}">Dashboard</a></li>
-        <li><a href="#">Imagens</a></li>
-        <li><a href="#">Pessoas</a></li>
-        <li><a href="{% url 'logout_then_login' %}">Logout</a></li>
-        <li><i class="material-icons left">account_circle</i><strong class=" left pink-text text-accent-1">{{ request.user.first_name }}</strong></li>
+        <li class="hoverable"><a href="{% url 'dashboard' %}">Dashboard</a></li>
+        <li class="hoverable"><a href="#">Imagens</a></li>
+        <li class="hoverable"><a href="#">Pessoas</a></li>
+        <li class="hoverable"><a href="{% url 'logout_then_login' %}">Logout</a></li>
+        <li><i class="material-icons left pink-text text-accent-1">account_circle</i><strong class=" left pink-text text-accent-1">{{ request.user.first_name }}</strong></li>
       </ul>
-
     {% endif %}
   </div>
 </nav>
