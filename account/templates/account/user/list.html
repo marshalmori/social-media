@@ -1,0 +1,28 @@
+{% extends "base.html" %}
+
+
+{% block content %}
+<div class="container">
+  <h1>Pessoas</h1>
+    {% for user in users %}
+    <div class="col s12 m8 offset-m2 l6 offset-l3">
+      <div class="card-panel grey lighten-5 z-depth-1">
+        <div class="row valign-wrapper">
+          <div class="col s2">
+            <a href="{{ user.get_absolute_url }}">
+              <img class="circle responsive-img" src="{{ user.profile.photo.url }}">
+            </a>
+          </div>
+          <div class="col s10">
+            <span>
+              <a href="{{ user.get_absolute_url }}">
+                {{ user.get_full_name }}
+              </a>
+            </span>
+          </div>
+        </div>
+      </div>
+    </div>
+    {% endfor %}
+</div>
+{% endblock %}

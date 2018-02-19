@@ -21,5 +21,10 @@ urlpatterns = [
     url(r'^password-reset/done/$', 'django.contrib.auth.views.password_reset_done', name='password_reset_done'),
     url(r'^password-reset/confirm/(?P<uidb64>[-\w]+)/(?P<token>[-\w]+)/$', 'django.contrib.auth.views.password_reset_confirm', name='password_reset_confirm'),
     url(r'^password_reset/complete/$', 'django.contrib.auth.views.password_reset_complete', name='password_reset_complete'),
+    url(r'^register/$', views.register, name='register'),
+    url(r'^edit/$', views.edit, name='edit'),
+    url(r'^users/$', views.user_list, name='user_list'),
+    url(r'^users/(?P<username>[-\w]+)/$', views.user_detail, name='user_detail'),
+    url(r'^users/follow/$', views.user_follow, name='user_follow'),
 
 ]

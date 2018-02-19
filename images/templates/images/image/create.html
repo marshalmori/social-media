@@ -1,0 +1,27 @@
+{% extends "base.html" %}
+
+{% block content %}
+  <h1>Bookmark an image</h1>
+  <div class="row">
+     <div class="col s6 offset-s1">
+       <img class="materialboxed" width=600 src="{{ request.GET.url }}">
+     </div>
+
+     <div class="col s4 ">
+       <form  action="." method="post">
+         {{ form.as_p }}
+         {% csrf_token %}
+         <div class="input-field s3 offset-s2">
+           <p><button class="btn waves-effect waves-light col s4 pink hoverable" type="submit">Enviar
+             <i class="material-icons right">send</i>
+           </button></p>
+         </div>
+       </form>
+     </div>
+ </div>
+{% endblock %}
+
+
+"""
+http://127.0.0.1:8000/images/create/?title=%20Django%20and%20Duke&url=http://upload.wikimedia.org/wikipedia/commons/8/85/Django_Reinhardt_and_Duke_Ellington_%28Gottlieb%29.jpg
+"""

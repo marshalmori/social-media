@@ -1,0 +1,38 @@
+{% extends "base.html" %}
+
+
+{% block content %}
+<head>
+  <style type="text/css">
+    .top50{
+      margin-top: 1em;
+    }
+  </style>
+</head>
+
+<body class="cyan loaded" cz-shortcut-listen="true">
+    <div class="row top50">
+      <div class="col s4 offset-s4 card z-depth-5">
+        <div class="card-content indigo-text center">
+              <span class="card-title">Cadastro</span>
+              <!--<i class="material-icons large cyan-text">account_box</i> -->
+        </div>
+
+        <form action="." class="login-form" method="post">
+          {{ user_form.as_p }}
+          {% csrf_token %}
+
+          <div class="row">
+            <div class="input-field col s8 offset-s2">
+              <p><button class="btn waves-effect waves-light col s12 pink hoverable" type="submit">Cadastrar
+                <i class="material-icons right">send</i>
+              </button></p>
+            </div>
+          </div>
+
+
+        </form>
+      </div>
+    </div>
+</body>
+{% endblock %}

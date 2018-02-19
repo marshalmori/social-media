@@ -4,8 +4,34 @@
 {% block content %}
 <div class="container">
   <h1>Dashboard</h1>
-  <p>Bem vindo a sua Dashboard</p>
+  <ul>
+    <li><a href="{% url 'edit' %}">Editar perfil</a></li>
+    <li><a href="{% url 'password_change' %}">Alterar senha</a></li>
+  </ul>
+
+
+  {% with total_images_created=request.user.images_created.count %}
+    <p>
+      Welcome to your dashboard. You have bookmarked {{ total_images_created }}
+      image{{ total_images_created|pluralize }}.
+    </p>
+  {% endwith %}
+
+  <p>
+    Drag the following button to your bookmarks toolbar to bookmark images
+    from other websites <a href="javascript:{% include 'bookmarklet_launcher.js'%}" class="btn">Bookmark</a>
+  </p>
+
+  <p>
+    You can also <a href="{% url 'password_change' %}">Alterar senha.</a>
+  </p>
 </div>
 
+  <h2 class="container">What's happening</h2>
+  <div class='container'>
+    {% for action in actions %}
+      {% include 'actions/action/detail.html' %}
+    {% endfor %}
+  </div>
 
 {% endblock %}
